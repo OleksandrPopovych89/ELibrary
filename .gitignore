@@ -1,0 +1,14 @@
+
+.idea/*
+target/*
+
+*.class
+
+*.jar
+*.var
+*.ear
+
+*.xls
+*.xlsx
+*.docx
+*.bin
