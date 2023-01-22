@@ -1,4 +1,4 @@
-package com.ua.op.model.connection;
+package com.ua.op.elibrary.model.connection;
 
 public interface PropertiesConstants {
     String PROPERTIES_WAY = "database.properties";

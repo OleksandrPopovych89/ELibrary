@@ -1,4 +1,4 @@
-package com.ua.op.model.entities;
+package com.ua.op.elibrary.model.entities;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

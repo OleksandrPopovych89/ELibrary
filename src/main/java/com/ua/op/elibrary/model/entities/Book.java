@@ -1,16 +1,18 @@
-package com.ua.op.model.entities;
+package com.ua.op.elibrary.model.entities;
 
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 @Data
-@NoArgsConstructor
+@Builder
 @EqualsAndHashCode(of = {"bookID", "ISBN"})
 public class Book implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private long bookID;
     private String bookTitle;
     private String authorName;

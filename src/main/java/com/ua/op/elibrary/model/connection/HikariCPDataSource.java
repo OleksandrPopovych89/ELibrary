@@ -1,4 +1,4 @@
-package com.ua.op.model.connection;
+package com.ua.op.elibrary.model.connection;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -9,8 +9,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import static com.ua.op.model.connection.PropertiesConstants.*;
-
 
 public class HikariCPDataSource {
 
@@ -20,12 +18,12 @@ public class HikariCPDataSource {
     static {
         Properties properties = getProperties();
         config.setJdbcUrl(properties.getProperty(PropertiesConstants.DB_URL));
-        config.setUsername(properties.getProperty(DB_USERNAME));
-        config.setPassword(properties.getProperty(DB_PASSWORD));
-        config.setDriverClassName(properties.getProperty(DB_DRIVER_CLASS));
-        config.addDataSourceProperty(CACHE_PREPARED_STATEMENT, properties.getProperty(CACHE_PREPARED_STATEMENT));
-        config.addDataSourceProperty(CACHE_SIZE, properties.getProperty(CACHE_SIZE));
-        config.addDataSourceProperty(CACHE_SQL_LIMIT, properties.getProperty(CACHE_SQL_LIMIT));
+        config.setUsername(properties.getProperty(PropertiesConstants.DB_USERNAME));
+        config.setPassword(properties.getProperty(PropertiesConstants.DB_PASSWORD));
+        config.setDriverClassName(properties.getProperty(PropertiesConstants.DB_DRIVER_CLASS));
+        config.addDataSourceProperty(PropertiesConstants.CACHE_PREPARED_STATEMENT, properties.getProperty(PropertiesConstants.CACHE_PREPARED_STATEMENT));
+        config.addDataSourceProperty(PropertiesConstants.CACHE_SIZE, properties.getProperty(PropertiesConstants.CACHE_SIZE));
+        config.addDataSourceProperty(PropertiesConstants.CACHE_SQL_LIMIT, properties.getProperty(PropertiesConstants.CACHE_SQL_LIMIT));
         dataSource = new HikariDataSource(config);
     }
 
@@ -35,7 +33,7 @@ public class HikariCPDataSource {
 
     private static Properties getProperties() {
         Properties properties = new Properties();
-        try (InputStream resource = HikariCPDataSource.class.getClassLoader().getResourceAsStream(PROPERTIES_WAY)) {
+        try (InputStream resource = HikariCPDataSource.class.getClassLoader().getResourceAsStream(PropertiesConstants.PROPERTIES_WAY)) {
             properties.load(resource);
         } catch (IOException e) {
         }
