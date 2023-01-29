@@ -12,8 +12,6 @@ VALUES (1, 'Admin'),
        (2, 'Librarian'),
        (3, 'Reader');
 
-
-
 CREATE TABLE IF NOT EXISTS library.users
 (
     user_id          INT PRIMARY KEY AUTO_INCREMENT,
@@ -35,18 +33,6 @@ VALUES ('ap@gmail.com', '12345678', '+380-66-689-76-00', 'Олександр', '
        ('vdp@gmail.com', '12345678', '+380-67-333-44-00', 'Віталій', 'Дрозд', '3', false),
        ('ms@gmail.com', '12345678', '+380-50-222-999-11', 'Микита', 'Шевченко', '3', false);
 
-
-CREATE TABLE IF NOT EXISTS library.subscription
-(
-    subscription_id           INT PRIMARY KEY AUTO_INCREMENT,
-    user_id                   INT,
-    subscription_type         ENUM ('subscription', 'reading room'),
-    subscription_status       boolean,
-    subscription_created_time DATETIME NOT NULL,
-    return_deadline           DATETIME NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES library.users (user_id)
-);
-
 CREATE TABLE IF NOT EXISTS library.books
 (
     book_id             INT PRIMARY KEY AUTO_INCREMENT,
@@ -65,16 +51,15 @@ VALUES ('978-966-03-6330-4', 'Книга джунглів', 'Фоліо', 'Ре�
        ('978-617-095-286-8', 'Чиста архітектура', 'Роберт С. Мартін', 'Фабула', 2019, 6),
        ('978-617-09-7933-9', 'Привид Києва', 'Мацуда Джюко', 'Ранок', 2022, 16);
 
-CREATE TABLE IF NOT EXISTS library.subscription_book
+CREATE TABLE IF NOT EXISTS library.orders_book
 (
-    subscription_id INT,
-    book_id         INT,
-    PRIMARY KEY (subscription_id, book_id),
-    FOREIGN KEY (subscription_id) REFERENCES library.subscription (subscription_id),
-    FOREIGN KEY (book_id) references library.books (book_id)
+    order_id           INT PRIMARY KEY AUTO_INCREMENT,
+    user_id                   INT,
+    book_id              INT,
+    subscription_type         ENUM ('subscription', 'reading room'),
+    order_status       boolean,
+    order_created_time DATETIME NOT NULL,
+    return_deadline           DATETIME NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES library.users (user_id),
+    FOREIGN KEY (book_id) REFERENCES library.books (book_id)
 );
-
-SELECT *
-FROM library.books;
-SELECT *
-FROM library.users;
