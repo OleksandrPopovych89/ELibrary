@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS library.users
     user_id          INT PRIMARY KEY AUTO_INCREMENT,
     user_email       VARCHAR(50) NOT NULL,
     user_password    VARCHAR(50) NOT NULL,
-    user_pone_number VARCHAR(18)  NOT NULL,
+    user_pone_number VARCHAR(18) NOT NULL,
     user_firstname   VARCHAR(50) NOT NULL,
     user_lastname    VARCHAR(50) NOT NULL,
     user_role_id     INT,
@@ -29,7 +29,11 @@ CREATE TABLE IF NOT EXISTS library.users
 
 INSERT INTO library.users (user_email, user_password, user_pone_number, user_firstname, user_lastname, user_role_id,
                            user_is_blocked)
-VALUES ('ap@gmail.com', '1123', '+380-66-689-76-00', 'Олександр', 'Попович', '1', false);
+VALUES ('ap@gmail.com', '12345678', '+380-66-689-76-00', 'Олександр', 'Попович', '1', false),
+       ('vs@gmail.com', '12345678', '+380-99-000-55-00', 'Валентина', 'Степанова', '2', false),
+       ('sn@gmail.com', '12345678', '+380-67-111-66-00', 'Cергій', 'Нікітенко', '2', false),
+       ('vdp@gmail.com', '12345678', '+380-67-333-44-00', 'Віталій', 'Дрозд', '3', false),
+       ('ms@gmail.com', '12345678', '+380-50-222-999-11', 'Микита', 'Шевченко', '3', false);
 
 
 CREATE TABLE IF NOT EXISTS library.subscription

@@ -78,7 +78,6 @@ public class UserDAOImpl implements UserDAO {
     }
 
     public static void main(String[] args) throws SQLException {
-        UserDAOImpl userDAO = new UserDAOImpl();
-        System.out.println(userDAO.getAll());
+        new UserDAOImpl().getAll().forEach(System.out::println);
     }
 }
