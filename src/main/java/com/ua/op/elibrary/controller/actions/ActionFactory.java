@@ -1,9 +1,11 @@
 package com.ua.op.elibrary.controller.actions;
 
 
+import com.ua.op.elibrary.controller.actions.implementation.admin.LibrariansListAction;
+import com.ua.op.elibrary.controller.actions.implementation.admin.UsersListAction;
 import com.ua.op.elibrary.controller.actions.implementation.general.DefaultAction;
 import com.ua.op.elibrary.controller.actions.implementation.info.AboutAction;
-import com.ua.op.elibrary.controller.actions.implementation.info.BooksListAction;
+import com.ua.op.elibrary.controller.actions.implementation.general.BooksListAction;
 import com.ua.op.elibrary.controller.actions.implementation.info.ContactsAction;
 
 import java.util.HashMap;
@@ -21,6 +23,9 @@ public final class ActionFactory {
         ACTION_MAP.put(ABOUT_ACTION, new AboutAction());
         ACTION_MAP.put(CONTACTS_ACTION, new ContactsAction());
         ACTION_MAP.put(BOOKS_LIST_ACTIONS, new BooksListAction());
+
+        ACTION_MAP.put(LIBRARIANS_LIST_ACTIONS, new LibrariansListAction());
+        ACTION_MAP.put(USERS_LIST_ACTIONS, new UsersListAction());
     }
 
     private ActionFactory() {

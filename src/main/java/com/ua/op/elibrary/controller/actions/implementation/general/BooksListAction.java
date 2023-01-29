@@ -1,4 +1,4 @@
-package com.ua.op.elibrary.controller.actions.implementation.info;
+package com.ua.op.elibrary.controller.actions.implementation.general;
 
 import com.ua.op.elibrary.controller.actions.Action;
 import com.ua.op.elibrary.model.dao.BookDAOImpl;
@@ -19,9 +19,7 @@ public class BooksListAction implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         List<Book> bookList = new BookDAOImpl().getAll();
-        bookList.forEach(System.out::println);
         request.setAttribute("books", bookList);
-        System.out.println("This is passed attribute" + request.getAttribute("books"));
         return BOOK_LIST_PAGE;
     }
 }

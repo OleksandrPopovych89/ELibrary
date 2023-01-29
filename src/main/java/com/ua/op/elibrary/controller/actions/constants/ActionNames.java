@@ -12,6 +12,9 @@ public final class ActionNames {
 
     public static final String BOOKS_LIST_ACTIONS = "books-list";
 
+    public static final String LIBRARIANS_LIST_ACTIONS = "librarians-list";
+    public static final String USERS_LIST_ACTIONS = "users-list";
+
 
 
     private ActionNames() {}

@@ -11,5 +11,8 @@ public final class Pages {
     public static final String PROFILE_PAGE = "profile.jsp";
     public static final String BOOK_LIST_PAGE = "viewBooks.jsp";
 
+    public static final String LIBRARIANS_LIST_PAGE = "viewLibrarians.jsp";
+    public static final String USERS_LIST_PAGE = "viewUsers.jsp";
+
     private Pages() {}
 }
