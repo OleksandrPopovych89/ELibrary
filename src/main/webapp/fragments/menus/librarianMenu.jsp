@@ -9,6 +9,6 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li><a class="dropdown-item" href="controller?action=books-list"><fmt:message key="book.catalog"/></a></li>
-        <li><a class="dropdown-item" href="controller?action=books-list"><fmt:message key="view.users"/></a></li>
+        <li><a class="dropdown-item" href="controller?action=users-list"><fmt:message key="view.users"/></a></li>
     </ul>
 </li>
