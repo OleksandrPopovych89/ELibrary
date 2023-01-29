@@ -3,8 +3,8 @@ CREATE SCHEMA IF NOT EXISTS library;
 
 CREATE TABLE IF NOT EXISTS library.roles
 (
-    role_id   INT PRIMARY KEY NOT NULL ,
-    role_name VARCHAR(15) NOT NULL
+    role_id   INT PRIMARY KEY NOT NULL,
+    role_name VARCHAR(15)     NOT NULL
 );
 
 INSERT INTO library.roles (role_id, role_name)
@@ -12,18 +12,25 @@ VALUES (1, 'Admin'),
        (2, 'Librarian'),
        (3, 'Reader');
 
+
+
 CREATE TABLE IF NOT EXISTS library.users
 (
     user_id          INT PRIMARY KEY AUTO_INCREMENT,
-    user_login       VARCHAR(50) NOT NULL ,
-    user_password    VARCHAR(50) NOT NULL ,
-    user_pone_number VARCHAR(9) NOT NULL ,
-    user_firstname   VARCHAR(50) NOT NULL ,
-    user_lastname    VARCHAR(50) NOT NULL ,
+    user_email       VARCHAR(50) NOT NULL,
+    user_password    VARCHAR(50) NOT NULL,
+    user_pone_number VARCHAR(18)  NOT NULL,
+    user_firstname   VARCHAR(50) NOT NULL,
+    user_lastname    VARCHAR(50) NOT NULL,
     user_role_id     INT,
     user_is_blocked  BOOLEAN,
     FOREIGN KEY (user_role_id) REFERENCES library.roles (role_id)
 );
+
+INSERT INTO library.users (user_email, user_password, user_pone_number, user_firstname, user_lastname, user_role_id,
+                           user_is_blocked)
+VALUES ('ap@gmail.com', '1123', '+380-66-689-76-00', 'Олександр', 'Попович', '1', false);
+
 
 CREATE TABLE IF NOT EXISTS library.subscription
 (
@@ -31,19 +38,19 @@ CREATE TABLE IF NOT EXISTS library.subscription
     user_id                   INT,
     subscription_type         ENUM ('subscription', 'reading room'),
     subscription_status       boolean,
-    subscription_created_time DATETIME NOT NULL ,
-    return_deadline           DATETIME NOT NULL ,
+    subscription_created_time DATETIME NOT NULL,
+    return_deadline           DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES library.users (user_id)
 );
 
 CREATE TABLE IF NOT EXISTS library.books
 (
     book_id             INT PRIMARY KEY AUTO_INCREMENT,
-    book_title          VARCHAR(50) NOT NULL ,
-    author_name         VARCHAR(50) NOT NULL ,
-    publisher_name      VARCHAR(50) NOT NULL ,
-    isbn                VARCHAR(30) NOT NULL ,
-    date_of_publication INT NOT NULL ,
+    book_title          VARCHAR(50)               NOT NULL,
+    author_name         VARCHAR(50)               NOT NULL,
+    publisher_name      VARCHAR(50)               NOT NULL,
+    isbn                VARCHAR(30)               NOT NULL,
+    date_of_publication INT                       NOT NULL,
     quantity            INT CHECK (quantity >= 0) NOT NULL
 );
 
