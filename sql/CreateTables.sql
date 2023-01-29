@@ -51,15 +51,18 @@ VALUES ('978-966-03-6330-4', 'Книга джунглів', 'Фоліо', 'Ре�
        ('978-617-095-286-8', 'Чиста архітектура', 'Роберт С. Мартін', 'Фабула', 2019, 6),
        ('978-617-09-7933-9', 'Привид Києва', 'Мацуда Джюко', 'Ранок', 2022, 16);
 
-CREATE TABLE IF NOT EXISTS library.orders_book
+CREATE TABLE IF NOT EXISTS library.orders
 (
     order_id           INT PRIMARY KEY AUTO_INCREMENT,
-    user_id                   INT,
-    book_id              INT,
-    subscription_type         ENUM ('subscription', 'reading room'),
-    order_status       boolean,
+    user_id            INT,
+    book_id            INT,
+    subscription_type_id  INT,
+    order_status_id       INT,
     order_created_time DATETIME NOT NULL,
-    return_deadline           DATETIME NOT NULL,
+    return_deadline    DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES library.users (user_id),
     FOREIGN KEY (book_id) REFERENCES library.books (book_id)
 );
+
+INSERT INTO library.orders (user_id, book_id, subscription_type_id, order_status_id, order_created_time, return_deadline)
+VALUES (1, 1, 1, 1, '2023-01-02 22:12:33', '2023-04-29 22:12:35');

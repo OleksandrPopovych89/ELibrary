@@ -1,4 +1,4 @@
-package com.ua.op.elibrary.model.entities;
+package com.ua.op.elibrary.model.entities.enums;
 
 public enum Role {
     ADMIN(1), LIBRARIAN(2), READER(3);

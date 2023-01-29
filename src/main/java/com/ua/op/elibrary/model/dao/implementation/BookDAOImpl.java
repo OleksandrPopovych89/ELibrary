@@ -1,8 +1,8 @@
-package com.ua.op.elibrary.model.dao;
+package com.ua.op.elibrary.model.dao.implementation;
 
 import com.ua.op.elibrary.model.connection.HikariCPDataSource;
+import com.ua.op.elibrary.model.dao.BookDAO;
 import com.ua.op.elibrary.model.entities.Book;
-import com.ua.op.elibrary.model.dao.constants.SQL;
 import com.ua.op.elibrary.model.dao.constants.TableFields;
 
 import java.sql.*;
@@ -21,7 +21,6 @@ public class BookDAOImpl implements BookDAO {
     public void add(Book book) throws SQLException {
         try (Connection con = HikariCPDataSource.getConnection();
              PreparedStatement ps = con.prepareStatement(ADD_BOOK)) {
-
             setFieldsToPS(book, ps);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -39,7 +38,7 @@ public class BookDAOImpl implements BookDAO {
              ResultSet rs = stm.executeQuery(SELECT_ALL_BOOKS)) {
             List<Book> bookList = new ArrayList<>();
             while (rs.next()) {
-                bookList.add(createBook(bookList, rs));
+                bookList.add(createBook(rs));
             }
             return bookList;
         } catch (SQLException e) {
@@ -81,7 +80,7 @@ public class BookDAOImpl implements BookDAO {
             ResultSet rs = ps.executeQuery();
             List<Book> bookList = new ArrayList<>();
             while (rs.next()) {
-                bookList.add(createBook(bookList, rs));
+                bookList.add(createBook(rs));
             }
             return bookList;
         } catch (SQLException e) {
@@ -89,13 +88,10 @@ public class BookDAOImpl implements BookDAO {
         }
     }
 
-
     /**
      * The utility method that creates the workbook populates all the fields from the result set and returns it.
      */
-    private static Book createBook(List<Book> bookList, ResultSet rs) throws SQLException {
-        System.out.println(rs.getString(BOOK_TITLE));
-
+    private static Book createBook(ResultSet rs) throws SQLException {
         return Book.builder().
                 bookID(rs.getInt(BOOK_ID)).
                 bookTitle(rs.getString(BOOK_TITLE)).

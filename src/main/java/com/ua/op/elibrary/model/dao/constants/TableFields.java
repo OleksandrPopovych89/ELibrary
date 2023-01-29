@@ -21,5 +21,9 @@ public  interface TableFields {
     String DATE_OF_PUBLICATION = "date_of_publication";
     String QUANTITY = "quantity";
 
-
+    String ORDER_ID = "order_id";
+    String SUBSCRIPTION_TYPE_ID = "subscription_type_id";
+    String ORDER_STATUS_ID = "order_status_id";
+    String ORDER_CREATE_TIME = "order_created_time";
+    String RETURN_DEADLINE = "return_deadline";
 }

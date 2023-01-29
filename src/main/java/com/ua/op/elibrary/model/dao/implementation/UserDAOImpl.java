@@ -1,7 +1,7 @@
-package com.ua.op.elibrary.model.dao;
+package com.ua.op.elibrary.model.dao.implementation;
 
 import com.ua.op.elibrary.model.connection.HikariCPDataSource;
-import com.ua.op.elibrary.model.entities.Role;
+import com.ua.op.elibrary.model.dao.UserDAO;
 import com.ua.op.elibrary.model.entities.User;
 
 import java.sql.*;
@@ -31,7 +31,7 @@ public class UserDAOImpl implements UserDAO {
              Statement stm = con.createStatement();
              ResultSet rs = stm.executeQuery(SELECT_ALL_USERS)) {
             while (rs.next()) {
-                userList.add(createUser(userList, rs));
+                userList.add(createUser(rs));
             }
         }
         return userList;
@@ -62,7 +62,7 @@ public class UserDAOImpl implements UserDAO {
     /**
      * The utility method that creates the user populates all the fields from the result set and returns it.
      */
-    private static User createUser(List<User> userList, ResultSet rs) throws SQLException {
+    private static User createUser(ResultSet rs) throws SQLException {
 
         return User.builder().
                 userId(rs.getInt(USER_ID)).
@@ -71,13 +71,8 @@ public class UserDAOImpl implements UserDAO {
                 userPhoneNumber(rs.getString(USER_PHONE_NUMBER)).
                 userFirstname(rs.getString(USER_FIRSTNAME)).
                 userLastname(rs.getString(USER_LASTNAME)).
-                userRole(Role.getRole(rs.getInt(USER_ROLE_ID))).
+                userRole((rs.getInt(USER_ROLE_ID))).
                 isBlocked(rs.getBoolean(USER_IS_BLOCKED)).
                 build();
-
-    }
-
-    public static void main(String[] args) throws SQLException {
-        new UserDAOImpl().getAll().forEach(System.out::println);
     }
 }

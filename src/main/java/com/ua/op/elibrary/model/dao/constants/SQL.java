@@ -12,4 +12,9 @@ public interface SQL {
     String ADD_USER = "INSERT INTO user " +
             "(user_id, user_email, user_password, user_pone_number, user_firstname, user_lastname, user_role, user_is_blocked)" +
             " VALUES(?,?,?,?,?,?,?,?)";
+
+    String SELECT_ALL_ORDERS = "SELECT * FROM orders";
+    String ADD_ORDER = "INSERT INTO order " +
+            "(user_id, user_email, user_password, user_pone_number, user_firstname, user_lastname, user_role, user_is_blocked)" +
+            " VALUES(?,?,?,?,?,?,?,?)";
 }

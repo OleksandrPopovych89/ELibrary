@@ -1,7 +1,7 @@
 package com.ua.op.elibrary.controller.actions.implementation.admin;
 
 import com.ua.op.elibrary.controller.actions.Action;
-import com.ua.op.elibrary.model.dao.UserDAOImpl;
+import com.ua.op.elibrary.model.dao.implementation.UserDAOImpl;
 import com.ua.op.elibrary.model.entities.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

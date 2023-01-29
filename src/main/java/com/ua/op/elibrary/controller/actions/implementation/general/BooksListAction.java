@@ -1,7 +1,7 @@
 package com.ua.op.elibrary.controller.actions.implementation.general;
 
 import com.ua.op.elibrary.controller.actions.Action;
-import com.ua.op.elibrary.model.dao.BookDAOImpl;
+import com.ua.op.elibrary.model.dao.implementation.BookDAOImpl;
 import com.ua.op.elibrary.model.entities.Book;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

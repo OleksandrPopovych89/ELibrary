@@ -12,7 +12,6 @@ import java.io.Serializable;
 @EqualsAndHashCode(of = {"bookID", "ISBN"})
 public class Book implements Serializable {
     private static final long serialVersionUID = 1L;
-
     private long bookID;
     private String bookTitle;
     private String authorName;
