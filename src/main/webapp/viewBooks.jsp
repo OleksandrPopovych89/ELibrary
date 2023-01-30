@@ -20,7 +20,7 @@
     <table class="table table-hover" >
         <tbody align="center">
         <tr>
-            <th><fmt:message key="sequence.number"/></th>
+            <th><fmt:message key="book.id"/></th>
             <th><fmt:message key="title"/></th>
             <th><fmt:message key="author"/></th>
             <th><fmt:message key="publisher"/></th>

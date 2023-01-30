@@ -19,7 +19,6 @@
     <table class="table table-hover" >
         <tbody align="center">
         <tr>
-            <th><fmt:message key="sequence.number"/></th>
             <th><fmt:message key="user.id"/></th>
             <th><fmt:message key="firstname"/></th>
             <th><fmt:message key="lastname"/></th>
@@ -29,7 +28,6 @@
         </tr>
         <c:forEach var="librarian" items="${requestScope.librarians}">
             <tr>
-                <td><c:out value="${librarian.userId}"/></td>
                 <td ><c:out value="${librarian.userId}"/></td>
                 <td><c:out value="${librarian.userFirstname}"/></td>
                 <td><c:out value="${librarian.userLastname}"/></td>

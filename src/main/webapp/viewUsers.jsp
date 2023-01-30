@@ -19,7 +19,6 @@
     <table class="table table-hover" >
         <tbody align="center">
         <tr>
-            <th><fmt:message key="sequence.number"/></th>
             <th><fmt:message key="user.id"/></th>
             <th><fmt:message key="firstname"/></th>
             <th><fmt:message key="lastname"/></th>
@@ -29,7 +28,6 @@
         </tr>
         <c:forEach var="user" items="${requestScope.users}">
             <tr>
-                <td><c:out value="${user.userId}"/></td>
                 <td ><c:out value="${user.userId}"/></td>
                 <td><c:out value="${user.userFirstname}"/></td>
                 <td><c:out value="${user.userLastname}"/></td>
