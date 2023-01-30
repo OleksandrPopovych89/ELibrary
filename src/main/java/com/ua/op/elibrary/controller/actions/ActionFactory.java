@@ -2,6 +2,7 @@ package com.ua.op.elibrary.controller.actions;
 
 
 import com.ua.op.elibrary.controller.actions.implementation.admin.LibrariansListAction;
+import com.ua.op.elibrary.controller.actions.implementation.admin.OrdersListAction;
 import com.ua.op.elibrary.controller.actions.implementation.admin.UsersListAction;
 import com.ua.op.elibrary.controller.actions.implementation.general.DefaultAction;
 import com.ua.op.elibrary.controller.actions.implementation.info.AboutAction;
@@ -26,6 +27,8 @@ public final class ActionFactory {
 
         ACTION_MAP.put(LIBRARIANS_LIST_ACTIONS, new LibrariansListAction());
         ACTION_MAP.put(USERS_LIST_ACTIONS, new UsersListAction());
+
+        ACTION_MAP.put(USERS_LIST_ACTIONS, new OrdersListAction());
     }
 
     private ActionFactory() {
