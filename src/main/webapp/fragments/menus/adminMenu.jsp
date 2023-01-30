@@ -12,6 +12,7 @@
         <li><a class="dropdown-item" href="controller?action=books-list"><fmt:message key="book.catalog"/></a></li>
         <li><a class="dropdown-item" href="controller?action=librarians-list"><fmt:message key="view.librarians"/></a></li>
         <li><a class="dropdown-item" href="controller?action=users-list"><fmt:message key="view.users"/></a></li>
+        <li><a class="dropdown-item" href="controller?action=orders-list"><fmt:message key="view.orders"/></a></li>
         <%--        <li><hr class="dropdown-divider"></li>--%>
         <%--        <li><a class="dropdown-item" href="#">Something else here</a></li>--%>
     </ul>

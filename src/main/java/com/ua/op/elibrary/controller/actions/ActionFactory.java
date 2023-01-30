@@ -28,7 +28,7 @@ public final class ActionFactory {
         ACTION_MAP.put(LIBRARIANS_LIST_ACTIONS, new LibrariansListAction());
         ACTION_MAP.put(USERS_LIST_ACTIONS, new UsersListAction());
 
-        ACTION_MAP.put(USERS_LIST_ACTIONS, new OrdersListAction());
+        ACTION_MAP.put(ORDERS_LIST_ACTIONS, new OrdersListAction());
     }
 
     private ActionFactory() {
