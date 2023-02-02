@@ -13,7 +13,10 @@ public interface SQL {
             "(user_id, user_email, user_password, user_pone_number, user_firstname, user_lastname, user_role, user_is_blocked)" +
             " VALUES(?,?,?,?,?,?,?,?)";
 
-    String SELECT_ALL_ORDERS = "SELECT * FROM orders";
+    String SELECT_ALL_ORDERS = "SELECT * FROM orders\n" +
+            "JOIN books b on b.book_id = orders.book_id\n" +
+            "JOIN users u on u.user_id = orders.user_id";
+
     String ADD_ORDER = "INSERT INTO order " +
             "(user_id, user_email, user_password, user_pone_number, user_firstname, user_lastname, user_role, user_is_blocked)" +
             " VALUES(?,?,?,?,?,?,?,?)";

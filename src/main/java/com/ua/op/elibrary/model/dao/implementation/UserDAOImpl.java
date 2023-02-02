@@ -62,7 +62,7 @@ public class UserDAOImpl implements UserDAO {
     /**
      * The utility method that creates the user populates all the fields from the result set and returns it.
      */
-    private static User createUser(ResultSet rs) throws SQLException {
+    protected static User createUser(ResultSet rs) throws SQLException {
 
         return User.builder().
                 userId(rs.getInt(USER_ID)).

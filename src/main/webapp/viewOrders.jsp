@@ -20,8 +20,9 @@
         <tbody align="center">
         <tr>
             <th><fmt:message key="order.id"/></th>
-            <th><fmt:message key="user.id"/></th>
-            <th><fmt:message key="book.id"/></th>
+            <th><fmt:message key="firstname"/></th>
+            <th><fmt:message key="lastname"/></th>
+            <th><fmt:message key="title"/></th>
             <th><fmt:message key="subscription.type"/></th>
             <th><fmt:message key="status"/></th>
             <th><fmt:message key="create.time"/></th>
@@ -30,8 +31,9 @@
         <c:forEach var="order" items="${requestScope.orders}">
             <tr>
                 <td><c:out value="${order.orderId}"/></td>
-                <td ><c:out value="${order.userId}"/></td>
-                <td><c:out value="${order.bookId}"/></td>
+                <td ><c:out value="${order.user.userFirstname}"/></td>
+                <td ><c:out value="${order.user.userLastname}"/></td>
+                <td><c:out value="${order.book.bookTitle}"/></td>
                 <td><c:out value="${order.subscriptionType}"/></td>
                 <td><c:out value="${order.orderStatusId}"/></td>
                 <td><c:out value="${order.orderCreateTime}"/></td>

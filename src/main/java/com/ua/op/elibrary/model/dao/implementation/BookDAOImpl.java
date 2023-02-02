@@ -91,7 +91,7 @@ public class BookDAOImpl implements BookDAO {
     /**
      * The utility method that creates the workbook populates all the fields from the result set and returns it.
      */
-    private static Book createBook(ResultSet rs) throws SQLException {
+    protected static Book createBook(ResultSet rs) throws SQLException {
         return Book.builder().
                 bookID(rs.getInt(BOOK_ID)).
                 bookTitle(rs.getString(BOOK_TITLE)).

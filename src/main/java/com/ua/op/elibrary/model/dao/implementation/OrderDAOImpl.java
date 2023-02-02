@@ -49,8 +49,8 @@ public class OrderDAOImpl implements OrderDAO {
     private static void setFieldsToPS(Order order, PreparedStatement ps) throws SQLException {
         int k = 0;
         ps.setInt(++k, order.getOrderId());
-        ps.setInt(++k, order.getBookId());
-        ps.setInt(++k, order.getUserId());
+        ps.setLong(++k, order.getBook().getBookID());
+        ps.setLong(++k, order.getUser().getUserId());
         ps.setInt(++k, order.getSubscriptionType());
         ps.setInt(++k, order.getOrderStatusId());
         ps.setDate(++k, Date.valueOf(order.getOrderCreateTime()));
@@ -63,8 +63,8 @@ public class OrderDAOImpl implements OrderDAO {
     private static Order createOrder(ResultSet rs) throws SQLException {
         return Order.builder().
                 orderId(rs.getInt(ORDER_ID)).
-                orderId(rs.getInt(BOOK_ID)).
-                bookId(rs.getInt(USER_ID)).
+                book(BookDAOImpl.createBook(rs)).
+                user(UserDAOImpl.createUser(rs)).
                 subscriptionType(rs.getInt(SUBSCRIPTION_TYPE_ID)).
                 orderStatusId(rs.getInt(ORDER_STATUS_ID)).
                 orderCreateTime(rs.getDate(ORDER_CREATE_TIME).toLocalDate()).
