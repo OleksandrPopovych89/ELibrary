@@ -9,7 +9,7 @@
 <html lang="${sessionScope.locale}">
 
 <head>
-    <title>Conference Smart App. <fmt:message key="sign.in"/></title>
+    <title><fmt:message key="app.title"/> <fmt:message key="sign.in"/></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <jsp:include page="fragments/formating/formating.jsp"/>
 </head>
@@ -27,13 +27,11 @@
             <label class="form-label fs-5" for="email"><fmt:message key="email"/>: </label>
             <input class="form-control" type="email" name="email" id="email"
                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required value="${requestScope.email}">
-            <tags:contains error="${requestScope.error}" value="email"/><br>
         </div>
 
         <div class="mb-1">
             <label class="form-label  fs-5" for="password"><fmt:message key="password"/>: </label>
             <input class="form-control" type="password" name="password" id="password" required>
-            <tags:contains error="${requestScope.error}" value="pass"/><br>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" onclick="showPass('password')" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault"><fmt:message key="show.password"/></label>

@@ -8,8 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ua.op.elibrary.model.dao.constants.SQL.ADD_USER;
-import static com.ua.op.elibrary.model.dao.constants.SQL.SELECT_ALL_USERS;
+import static com.ua.op.elibrary.model.dao.constants.SQL.*;
 import static com.ua.op.elibrary.model.dao.constants.TableFields.*;
 
 public class UserDAOImpl implements UserDAO {
@@ -39,14 +38,33 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void update(User user) throws SQLException {
+        try (Connection con = HikariCPDataSource.getConnection();
+             PreparedStatement ps = con.prepareStatement(UPDATE_USER)) {
+            setFieldsToPSUpdateUser(user, ps);
+            ps.setLong(5, user.getUserId());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
 
     }
 
     @Override
     public void delete(long id) throws SQLException {
-
+        try (Connection con = HikariCPDataSource.getConnection();
+             PreparedStatement ps = con.prepareStatement(DELETE_USER)) {
+            ps.setLong(1, id);
+            ps.execute();
+        }
     }
 
+    private static void setFieldsToPSUpdateUser(User user, PreparedStatement ps) throws SQLException {
+        int k = 0;
+        ps.setString(++k, user.getUserEmail());
+        ps.setString(++k, user.getUserPhoneNumber());
+        ps.setString(++k, user.getUserFirstname());
+        ps.setString(++k, user.getUserLastname());
+    }
 
     private static void setFieldsToPS(User user, PreparedStatement ps) throws SQLException {
         int k = 0;

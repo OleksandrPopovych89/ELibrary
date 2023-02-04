@@ -58,7 +58,7 @@ public class OrderDAOImpl implements OrderDAO {
     }
 
     /**
-     * The utility method that creates the user populates all the fields from the result set and returns it.
+     * The utility method that creates the order populates all the fields from the result set and returns it.
      */
     private static Order createOrder(ResultSet rs) throws SQLException {
         return Order.builder().

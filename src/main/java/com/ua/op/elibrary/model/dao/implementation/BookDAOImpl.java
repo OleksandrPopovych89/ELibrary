@@ -48,12 +48,25 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public void update(Book book) throws SQLException {
-
+        try (Connection con = HikariCPDataSource.getConnection();
+             PreparedStatement ps = con.prepareStatement(UPDATE_BOOK)) {
+            setFieldsToPS(book, ps);
+            ps.setLong(7, book.getBookID());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
     }
 
     @Override
     public void delete(long id) throws SQLException {
-
+        try (Connection con = HikariCPDataSource.getConnection();
+             PreparedStatement ps = con.prepareStatement(DELETE_BOOK)) {
+            ps.setLong(1, id);
+            ps.execute();
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
     }
 
     /**
@@ -64,6 +77,7 @@ public class BookDAOImpl implements BookDAO {
         ps.setString(++k, book.getBookTitle());
         ps.setString(++k, book.getAuthorName());
         ps.setString(++k, book.getPublisherName());
+        ps.setString(++k, book.getISBN());
         ps.setInt(++k, book.getDateOfPublication());
         ps.setInt(++k, book.getQuantity());
     }
@@ -75,8 +89,9 @@ public class BookDAOImpl implements BookDAO {
         Book book;
         try (Connection con = HikariCPDataSource.getConnection();
              PreparedStatement ps = con.prepareStatement(GET_BY_TITLE_AUTHOR_NAME)) {
-            ps.setString(1, titleOrAuthorName);
-            ps.setString(2, titleOrAuthorName);
+            int k = 0;
+            ps.setString(++k, titleOrAuthorName);
+            ps.setString(++k, titleOrAuthorName);
             ResultSet rs = ps.executeQuery();
             List<Book> bookList = new ArrayList<>();
             while (rs.next()) {

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-import static com.ua.op.elibrary.controller.actions.constants.Pages.ERROR_PAGE;
+import static com.ua.op.elibrary.controller.actions.constants.Pages.*;
 import static com.ua.op.elibrary.controller.actions.constants.Parameters.ACTION;
 
 public class Controller extends HttpServlet {

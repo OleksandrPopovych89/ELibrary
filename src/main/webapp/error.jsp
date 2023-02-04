@@ -5,8 +5,6 @@
 <fmt:setBundle basename="resources"/>
 
 <!DOCTYPE html>
-<html lang="${sessionScope.locale}">
-
 <head>
     <title><fmt:message key="oops"/></title>
     <jsp:include page="fragments/formating/formating.jsp"/>

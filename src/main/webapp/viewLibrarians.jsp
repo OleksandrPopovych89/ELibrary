@@ -8,7 +8,7 @@
 <html lang="${sessionScope.locale}">
 
 <head>
-    <title>Title</title>
+    <title><fmt:message key="librarian.menu"/></title>
     <jsp:include page="fragments/formating/formating.jsp"/>
 </head>
 <body>
@@ -16,7 +16,7 @@
 <jsp:include page="fragments/menus/mainMenu.jsp"/>
 
 <div class="col-lg-8 mx-auto p-4 py-md-5">
-    <table class="table table-hover" >
+    <table class="table table-hover">
         <tbody align="center">
         <tr>
             <th><fmt:message key="user.id"/></th>
@@ -28,12 +28,20 @@
         </tr>
         <c:forEach var="librarian" items="${requestScope.librarians}">
             <tr>
-                <td ><c:out value="${librarian.userId}"/></td>
+                <td><c:out value="${librarian.userId}"/></td>
                 <td><c:out value="${librarian.userFirstname}"/></td>
                 <td><c:out value="${librarian.userLastname}"/></td>
                 <td><c:out value="${librarian.userEmail}"/></td>
                 <td><c:out value="${librarian.userPhoneNumber}"/></td>
-                <td></td>
+                <td>
+                    <form method="POST" action="controller">
+                        <input type="hidden" name="action" value="delete-user">
+                        <input type="hidden" name="user-id" value="${librarian.userId}">
+                        <button type="submit" class="btn btn-light mt-6 mb-6">
+                            <jsp:include page="fragments/buttons/button.jsp"/>
+                        </button>
+                    </form>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

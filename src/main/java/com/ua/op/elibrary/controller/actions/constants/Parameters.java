@@ -1,8 +1,7 @@
 package com.ua.op.elibrary.controller.actions.constants;
 
-public final class Parameters {
-    public static final String ACTION = "action";
+public interface Parameters {
+    String ACTION = "action";
+    String USER_ID = "user-id";
 
-    private Parameters() {
-    }
 }

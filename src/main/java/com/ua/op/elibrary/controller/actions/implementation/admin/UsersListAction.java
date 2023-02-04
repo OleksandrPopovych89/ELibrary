@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import java.util.List;
 
-import static com.ua.op.elibrary.controller.actions.constants.Pages.USERS_LIST_PAGE;
+import static com.ua.op.elibrary.controller.actions.constants.Pages.*;
 
 public class UsersListAction implements Action {
 
