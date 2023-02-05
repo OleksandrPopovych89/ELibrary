@@ -16,6 +16,7 @@ public interface ActionNames {
     String DELETE_USER_ACTION = "delete-user";
 
     String USERS_LIST_ACTION = "users-list";
+    String CREATE_USER_FORM_ACTION = "create-user-form";
     String CREATE_USER_ACTION = "create-user";
 
     String ORDERS_LIST_ACTION = "orders-list";

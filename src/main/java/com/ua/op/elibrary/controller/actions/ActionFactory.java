@@ -2,6 +2,7 @@ package com.ua.op.elibrary.controller.actions;
 
 import com.ua.op.elibrary.controller.actions.implementation.admin.*;
 import com.ua.op.elibrary.controller.actions.implementation.general.BooksListAction;
+import com.ua.op.elibrary.controller.actions.implementation.general.CreateUserFormAction;
 import com.ua.op.elibrary.controller.actions.implementation.general.DefaultAction;
 import com.ua.op.elibrary.controller.actions.implementation.info.AboutAction;
 import com.ua.op.elibrary.controller.actions.implementation.info.ContactsAction;
@@ -25,6 +26,7 @@ public final class ActionFactory {
         ACTION_MAP.put(DELETE_USER_ACTION, new DeleteUserAction());
 
         ACTION_MAP.put(USERS_LIST_ACTION, new UsersListAction());
+        ACTION_MAP.put(CREATE_USER_FORM_ACTION, new CreateUserFormAction());
         ACTION_MAP.put(CREATE_USER_ACTION, new CreateUserAction());
 
         ACTION_MAP.put(ORDERS_LIST_ACTION, new OrdersListAction());
