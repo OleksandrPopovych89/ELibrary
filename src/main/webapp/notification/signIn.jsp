@@ -11,12 +11,12 @@
 <head>
     <title><fmt:message key="app.title"/> <fmt:message key="sign.in"/></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <jsp:include page="fragments/formating/formating.jsp"/>
+    <jsp:include page="../fragments/formating/formating.jsp"/>
 </head>
 
 <body>
 
-<jsp:include page="fragments/menus/mainMenu.jsp"/>
+<jsp:include page="../fragments/menus/mainMenu.jsp"/>
 
 <div class="col-lg-5 mx-auto p-4 py-md-5">
 
@@ -52,7 +52,7 @@
     </p>
 </div>
 
-<jsp:include page="fragments/formating/footer.jsp"/>
+<jsp:include page="../fragments/formating/footer.jsp"/>
 
 </body>
 </html>

@@ -5,15 +5,15 @@
 
 <head>
     <title>Edit profile</title>
-    <jsp:include page="fragments/formating/formating.jsp"/>
+    <jsp:include page="../fragments/formating/formating.jsp"/>
 </head>
 <body>
-<jsp:include page="fragments/menus/mainMenu.jsp"/>
+<jsp:include page="../fragments/menus/mainMenu.jsp"/>
 <h1>
     Edit profile
 </h1>
 <footer>
-    <jsp:include page="fragments/formating/footer.jsp"/>
+    <jsp:include page="../fragments/formating/footer.jsp"/>
 </footer>
 </body>
 </html>

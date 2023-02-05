@@ -15,6 +15,17 @@
 
 <jsp:include page="fragments/menus/mainMenu.jsp"/>
 
+<div class="col-lg-8 mx-auto p-4 py-md-8">
+    <form method="post" action="controller">
+        <input type="hidden" name="action" value="create-user-form">
+        <button type="submit" class="btn btn-light mt-1 mb-1">
+            Create new librarian
+            <jsp:include page="fragments/buttons/createButton.jsp"/>
+        </button>
+    </form>
+</div>
+
+
 <div class="col-lg-8 mx-auto p-4 py-md-5">
     <table class="table table-hover">
         <tbody align="center">
@@ -38,7 +49,7 @@
                         <input type="hidden" name="action" value="delete-user">
                         <input type="hidden" name="user-id" value="${librarian.userId}">
                         <button type="submit" class="btn btn-light mt-6 mb-6">
-                            <jsp:include page="fragments/buttons/button.jsp"/>
+                            <jsp:include page="fragments/buttons/deleteButton.jsp"/>
                         </button>
                     </form>
                 </td>

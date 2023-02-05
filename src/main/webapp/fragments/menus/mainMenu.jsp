@@ -16,10 +16,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <jsp:include page="menuChoice.jsp"/>
                 <ul class="nav-item">
-                    <a class="nav-link" href="../../about.jsp"><fmt:message key="about"/></a>
+                    <a class="nav-link" href="../../info/about.jsp"><fmt:message key="about"/></a>
                 </ul>
                 <ul class="nav-item">
-                    <a class="nav-link" href="../../contacts.jsp"><fmt:message key="contacts"/></a>
+                    <a class="nav-link" href="../../info/contacts.jsp"><fmt:message key="contacts"/></a>
                 </ul>
 
 
@@ -33,10 +33,10 @@
                 <c:choose>
                     <c:when test="${sessionScope.loggedUser eq null}">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../signIn.jsp"><fmt:message key="sign.in"/></a>
+                            <a class="nav-link" href="../../notification/signIn.jsp"><fmt:message key="sign.in"/></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../signUp.jsp"><fmt:message key="sign.up"/></a>
+                            <a class="nav-link" href="../../notification/signUp.jsp"><fmt:message key="sign.up"/></a>
                         </li>
                     </c:when>
                     <c:otherwise>
