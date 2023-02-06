@@ -12,8 +12,8 @@ public interface Pages {
     String BOOK_LIST_PAGE = "viewBooks.jsp";
 
     String LIBRARIANS_LIST_PAGE = "viewLibrarians.jsp";
-    String USERS_LIST_PAGE = "viewUsers.jsp";
-    String CREATE_USER_FORM_PAGE = "creates/createUserForm.jsp";
+    String READER_LIST_PAGE = "viewReaders.jsp";
+    String CREATE_USER_FORM_PAGE = "createUserForm.jsp";
 
     String ORDERS_LIST_PAGE = "viewOrders.jsp";
 

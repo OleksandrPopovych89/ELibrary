@@ -11,12 +11,12 @@ import java.util.List;
 
 import static com.ua.op.elibrary.controller.actions.constants.Pages.*;
 
-public class UsersListAction implements Action {
+public class ReadersListAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        List<User> userList = new UserDAOImpl().getAll();
-        request.setAttribute("users", userList);
-        return USERS_LIST_PAGE;
+        List<User> readerList = new UserDAOImpl().getAllByRoleID(3);
+        request.setAttribute("readers", readerList);
+        return READER_LIST_PAGE;
     }
 }

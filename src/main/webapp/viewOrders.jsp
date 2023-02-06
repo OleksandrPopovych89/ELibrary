@@ -8,44 +8,42 @@
 <html lang="${sessionScope.locale}">
 
 <head>
-    <title>Title</title>
+    <title><fmt:message key="orders"/></title>
     <jsp:include page="fragments/formating/formating.jsp"/>
+    <jsp:include page="fragments/menus/mainMenu.jsp"/>
 </head>
 <body>
-
-<jsp:include page="fragments/menus/mainMenu.jsp"/>
-
 <div class="col-lg-8 mx-auto p-4 py-md-5">
-    <table class="table table-hover" >
-        <tbody align="center">
-        <tr>
-            <th><fmt:message key="order.id"/></th>
-            <th><fmt:message key="firstname"/></th>
-            <th><fmt:message key="lastname"/></th>
-            <th><fmt:message key="title"/></th>
-            <th><fmt:message key="subscription.type"/></th>
-            <th><fmt:message key="status"/></th>
-            <th><fmt:message key="create.time"/></th>
-            <th><fmt:message key="return.deadline"/></th>
-        </tr>
-        <c:forEach var="order" items="${requestScope.orders}">
+    <figure>
+        <figcaption><fmt:message key="list.of.orders"/></figcaption>
+        <table class="table table-hover">
+            <tbody class="text-center">
             <tr>
-                <td><c:out value="${order.orderId}"/></td>
-                <td ><c:out value="${order.user.userFirstname}"/></td>
-                <td ><c:out value="${order.user.userLastname}"/></td>
-                <td><c:out value="${order.book.bookTitle}"/></td>
-                <td><c:out value="${order.subscriptionType}"/></td>
-                <td><c:out value="${order.orderStatusId}"/></td>
-                <td><c:out value="${order.orderCreateTime}"/></td>
-                <td><c:out value="${order.returnDeadline}"/></td>
-                <td></td>
+                <th><fmt:message key="order.id"/></th>
+                <th><fmt:message key="firstname"/></th>
+                <th><fmt:message key="lastname"/></th>
+                <th><fmt:message key="title"/></th>
+                <th><fmt:message key="subscription.type"/></th>
+                <th><fmt:message key="status"/></th>
+                <th><fmt:message key="create.time"/></th>
+                <th><fmt:message key="return.deadline"/></th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            <c:forEach var="order" items="${requestScope.orders}">
+                <tr>
+                    <td><c:out value="${order.orderId}"/></td>
+                    <td><c:out value="${order.user.userFirstname}"/></td>
+                    <td><c:out value="${order.user.userLastname}"/></td>
+                    <td><c:out value="${order.book.bookTitle}"/></td>
+                    <td><c:out value="${order.subscriptionType}"/></td>
+                    <td><c:out value="${order.orderStatusId}"/></td>
+                    <td><c:out value="${order.orderCreateTime}"/></td>
+                    <td><c:out value="${order.returnDeadline}"/></td>
+                    <td></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </figure>
 </div>
-<footer>
-    <jsp:include page="fragments/formating/footer.jsp"/>
-</footer>
 </body>
 </html>

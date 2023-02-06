@@ -15,8 +15,8 @@ public class LibrariansListAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        List<User> userList = new UserDAOImpl().getAll();
-        request.setAttribute("librarians", userList);
+        List<User> librariansList = new UserDAOImpl().getAllByRoleID(2);
+        request.setAttribute("librarians", librariansList);
         return LIBRARIANS_LIST_PAGE;
     }
 }

@@ -15,14 +15,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <jsp:include page="menuChoice.jsp"/>
-                <ul class="nav-item">
-                    <a class="nav-link" href="../../info/about.jsp"><fmt:message key="about"/></a>
-                </ul>
-                <ul class="nav-item">
-                    <a class="nav-link" href="../../info/contacts.jsp"><fmt:message key="contacts"/></a>
-                </ul>
-
-
                 <c:if test="${not empty sessionScope.loggedUser}">
                     <li class="nav-item">
                         <a class="nav-link" href="../../profile.jsp"><fmt:message key="profile"/></a>
@@ -33,10 +25,10 @@
                 <c:choose>
                     <c:when test="${sessionScope.loggedUser eq null}">
                         <li class="nav-item">
-                            <a class="nav-link" href="../../notification/signIn.jsp"><fmt:message key="sign.in"/></a>
+                            <a class="nav-link" href="signIn.jsp"><fmt:message key="sign.in"/></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../../notification/signUp.jsp"><fmt:message key="sign.up"/></a>
+                            <a class="nav-link" href="createUserForm.jsp"><fmt:message key="sign.up"/></a>
                         </li>
                     </c:when>
                     <c:otherwise>

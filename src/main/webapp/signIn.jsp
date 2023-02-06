@@ -9,14 +9,15 @@
 <html lang="${sessionScope.locale}">
 
 <head>
-    <title><fmt:message key="app.title"/> <fmt:message key="sign.in"/></title>
+    <title><fmt:message key="sign.in"/></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <jsp:include page="../fragments/formating/formating.jsp"/>
+    <jsp:include page="fragments/formating/formating.jsp"/>
+    <jsp:include page="fragments/menus/mainMenu.jsp"/>
 </head>
 
 <body>
 
-<jsp:include page="../fragments/menus/mainMenu.jsp"/>
+
 
 <div class="col-lg-5 mx-auto p-4 py-md-5">
 
@@ -42,17 +43,9 @@
     </form>
 
     <p class="fs-6 col-md-8">
-        <fmt:message key="forgot.password"/>
-        <a href="resetPassword.jsp" class="link-dark"><fmt:message key="reset.password"/></a>
-    </p>
-
-    <p class="fs-6 col-md-8">
         <fmt:message key="no.account"/>
         <a href="signUp.jsp" class="link-dark"><fmt:message key="sign.up"/></a>
     </p>
 </div>
-
-<jsp:include page="../fragments/formating/footer.jsp"/>
-
 </body>
 </html>

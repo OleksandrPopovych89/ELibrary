@@ -3,6 +3,7 @@ package com.ua.op.elibrary.model.dao.implementation;
 import com.ua.op.elibrary.model.connection.HikariCPDataSource;
 import com.ua.op.elibrary.model.dao.UserDAO;
 import com.ua.op.elibrary.model.entities.User;
+import com.ua.op.elibrary.model.entities.enums.Role;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,6 +30,18 @@ public class UserDAOImpl implements UserDAO {
         try (Connection con = HikariCPDataSource.getConnection();
              Statement stm = con.createStatement();
              ResultSet rs = stm.executeQuery(SELECT_ALL_USERS)) {
+            while (rs.next()) {
+                userList.add(createUser(rs));
+            }
+        }
+        return userList;
+    }
+
+    public List<User> getAllByRoleID(int roleId) throws SQLException {
+        List<User> userList = new ArrayList<>();
+        try (Connection con = HikariCPDataSource.getConnection();
+             Statement stm = con.createStatement();
+             ResultSet rs = stm.executeQuery(SELECT_ALL_USERS + " WHERE user_role_id = " + roleId)) {
             while (rs.next()) {
                 userList.add(createUser(rs));
             }
@@ -73,7 +86,7 @@ public class UserDAOImpl implements UserDAO {
         ps.setString(++k, user.getUserPhoneNumber());
         ps.setString(++k, user.getUserFirstname());
         ps.setString(++k, user.getUserLastname());
-        ps.setInt(++k, 1);
+        ps.setInt(++k, user.getUserRole());
         ps.setBoolean(++k, user.isBlocked());
     }
 

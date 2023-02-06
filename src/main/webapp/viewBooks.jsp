@@ -10,41 +10,38 @@
 <head>
     <title>Books</title>
     <jsp:include page="fragments/formating/formating.jsp"/>
+    <jsp:include page="fragments/menus/mainMenu.jsp"/>
 </head>
 
 <body>
-
-<jsp:include page="fragments/menus/mainMenu.jsp"/>
-
 <div class="col-lg-8 mx-auto p-4 py-md-5">
-    <table class="table table-hover" >
-        <tbody align="center">
-        <tr>
-            <th><fmt:message key="book.id"/></th>
-            <th><fmt:message key="title"/></th>
-            <th><fmt:message key="author"/></th>
-            <th><fmt:message key="publisher"/></th>
-            <th><fmt:message key="isbn"/></th>
-            <th><fmt:message key="date.of.publication"/></th>
-            <th><fmt:message key="quantity"/></th>
-        </tr>
-        <c:forEach var="book" items="${requestScope.books}">
+    <figure>
+        <figcaption><fmt:message key="lsit.of.books"/></figcaption>
+        <table class="table table-hover">
+            <tbody class="text-center">
             <tr>
-                <td><c:out value="${book.bookID}"/></td>
-                <td align="left"><c:out value="${book.bookTitle}"/></td>
-                <td><c:out value="${book.authorName}"/></td>
-                <td><c:out value="${book.publisherName}"/></td>
-                <td><c:out value="${book.ISBN}"/></td>
-                <td><c:out value="${book.dateOfPublication}"/></td>
-                <td><c:out value="${book.quantity}"/></td>
+                <th><fmt:message key="book.id"/> <i class="bi bi-arrow-down-up"></i></th>
+                <th><fmt:message key="title"/> <i class="bi bi-arrow-down-up"></i></th>
+                <th><fmt:message key="author"/> <i class="bi bi-arrow-down-up"></i></th>
+                <th><fmt:message key="publisher"/> <i class="bi bi-arrow-down-up"></i></th>
+                <th><fmt:message key="isbn"/> <i class="bi bi-arrow-down-up"></i></th>
+                <th><fmt:message key="date.of.publication"/> <i class="bi bi-arrow-down-up"></i></th>
+                <th><fmt:message key="quantity"/> <i class="bi bi-arrow-down-up"></i></th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            <c:forEach var="book" items="${requestScope.books}">
+                <tr>
+                    <td><c:out value="${book.bookID}"/></td>
+                    <td class="text-start"><c:out value="${book.bookTitle}"/></td>
+                    <td><c:out value="${book.authorName}"/></td>
+                    <td><c:out value="${book.publisherName}"/></td>
+                    <td><c:out value="${book.ISBN}"/></td>
+                    <td><c:out value="${book.dateOfPublication}"/></td>
+                    <td><c:out value="${book.quantity}"/></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </figure>
 </div>
-
-<footer>
-    <jsp:include page="fragments/formating/footer.jsp"/>
-</footer>
 </body>
 </html>
